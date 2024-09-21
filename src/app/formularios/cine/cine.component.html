@@ -1,0 +1,19 @@
+<div>
+    <h2>Compra de Boletos de Cine</h2>
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" [(ngModel)]="nombre" id="nombre">
+  
+    <label for="cantidadBoletos">Cantidad de Boletos:</label>
+    <input type="number" [(ngModel)]="cantidadBoletos" id="cantidadBoletos">
+  
+    <label for="cineco">¿Usa tarjeta CINECO?</label>
+    <input type="checkbox" [(ngModel)]="usaCineco" id="cineco">
+  
+    <button (click)="calcularPrecio()">Calcular Precio</button>
+  
+    <div *ngIf="totalAPagar > 0">
+      <p>{{nombre}}, el total a pagar es: {{totalAPagar | currency}}</p>
+    </div>
+  </div>
+  
