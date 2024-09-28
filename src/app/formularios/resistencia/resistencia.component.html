@@ -1,1 +1,101 @@
-<p>resistencia works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Resistencia</title>
+</head>
+<body>
+    <div class="container mt-5">
+        
+        <form [formGroup]="formulario">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="color1" class="form-label">Primera Banda</label>
+                    <select id="color1" class="form-select" name="banda1" formControlName="banda1">      
+                        <option value="0">Negro</option>
+                        <option value="1">Café</option>
+                        <option value="2">Rojo</option>
+                        <option value="3">Naranja</option>
+                        <option value="4">Amarillo</option>
+                        <option value="5">Verde</option>
+                        <option value="6">Azul</option>
+                        <option value="7">Violeta</option>
+                        <option value="8">Gris</option>
+                        <option value="9">Blanco</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="color2" class="form-label">Segunda Banda</label>
+                    <select id="color2" class="form-select" name="banda2" formControlName="banda2">                     
+                        <option value="0">Negro</option>
+                        <option value="1">Café</option>
+                        <option value="2">Rojo</option>
+                        <option value="3">Naranja</option>
+                        <option value="4">Amarillo</option>
+                        <option value="5">Verde</option>
+                        <option value="6">Azul</option>
+                        <option value="7">Violeta</option>
+                        <option value="8">Gris</option>
+                        <option value="9">Blanco</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="color3" class="form-label">Tercera Banda</label>
+                    <select id="color3" class="form-select" name="banda3" formControlName="banda3">
+                        
+                        <option value="1">Negro</option>
+                        <option value="10">Café</option>
+                        <option value="100">Rojo</option>
+                        <option value="1000">Naranja</option>
+                        <option value="10000">Amarillo</option>
+                        <option value="100000">Verde</option>
+                        <option value="1000000">Azul</option>
+                        <option value="10000000">Violeta</option>
+                        <option value="100000000">Gris</option>
+                        <option value="1000000000">Blanco</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tolerancia</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tolerancia" id="toleranciaOro" formControlName="tolerancia" value="oro">
+                    <label class="form-check-label" for="toleranciaOro">Oro - 5%</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tolerancia" id="toleranciaPlata" formControlName="tolerancia" value="plata">
+                    <label class="form-check-label" for="toleranciaPlata">Plata - 10%</label>
+                </div>
+            </div>
+
+            
+            <button type="submit" class="btn btn-primary" (click)="generaTolerancia()">Registrar</button>
+        </form>
+        <table class="table table-bordered table-striped mt-5" *ngIf="resultado">
+            <thead>
+                <tr>
+                    <th>Banda 1</th>
+                    <th>Banda 2</th>
+                    <th>Banda 3</th>
+                    <th>Tolerancia</th>
+                    <th>Valor</th>
+                    <th>Valor Máximo</th>
+                    <th>Valor Mínimo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td [style.background]="resultado.estiloBanda1">{{resultado.banda1}}</td>
+                    <td [style.background]="resultado.estiloBanda2">{{resultado.banda2}}</td>
+                    <td [style.background]="resultado.estiloBanda3">{{resultado.banda3}}</td>
+                    <td [style.background]="resultado.coloresTolerancia">{{resultado.tolerancia}}</td>
+                    <td>{{resultado.valor}}</td>
+                    <td>{{resultado.valorMax}}</td>
+                    <td>{{resultado.valorMin}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
